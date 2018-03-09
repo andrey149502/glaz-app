@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef, ViewChild, ElementRef } from '@angular/core';
 import { Exercise } from './exercise';
 import {
   trigger,
@@ -27,13 +27,7 @@ import { zoomInRight, zoomOutLeft, ZOOM_OUT_LEFT } from './animations';
   ]
 })
 export class AppComponent {
-  exercises: Exercise[] = [
-  	{ title: '1/5. Моргайте быстро-быстро', seconds: 30 },
-  	{ title: '2/5. Крепко зажмурьтесь на пару секунд, а потом откройте глаза на пару секунд', seconds: 30 },
-  	{ title: '3/5. Вращайте глазные яблоки, один оборот – по часовой стрелке, другой – против', seconds: 30 },
-  	{ title: '4/5. Легко нажмите на верхнее веко тремя пальцами на пару секунд, потом отпустите на пару секунд', seconds: 40 },
-  	{ title: '5/5. Сфокусируйте взгляд на отдаленном предмете, потом медленно сфокусируйте на близком предмете', seconds: 45 }
-  ];
+  exercises: Exercise[];
   messages: string[] = [
     'Молодец!',
     'Великолепно!',
@@ -84,10 +78,16 @@ export class AppComponent {
   state: string = 'show';
   timelineWidth: number = 100;
 
+  @ViewChild('exercises')
+  private exercisesElem: ElementRef;
+
   constructor() { }
 
 
   ngOnInit() {
+
+    this.exercises = this.prepareExerciseText();
+
   	this.current = this.cloneCurrentExercise();
   	this.isRunning = true;
 
@@ -116,6 +116,13 @@ export class AppComponent {
 
     this.selectRandowmMessage();
 
+  }
+
+  prepareExerciseText(): Exercise[] {
+    return Array.prototype.map.call(this.exercisesElem.nativeElement.children, ((elem: HTMLDivElement, index, arr) => ({
+      title: `${index + 1}/${arr.length}.  ${elem.textContent}`,
+      seconds: +elem.dataset.seconds
+    })));
   }
 
 
@@ -152,5 +159,5 @@ export class AppComponent {
     const array = this.messages;
     this.finishMessage = array[Math.floor(Math.random()*array.length)];
   }
-  
+
 }

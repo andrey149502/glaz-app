@@ -1,5 +1,5 @@
 <div class="wrapper">
-		
+
 		<div [@exerciseState]="state" (@exerciseState.done)="exerciseStateDone($event)">
 
 			<app-exercise *ngIf="isRunning" [exercise]="current" ></app-exercise>
@@ -8,4 +8,12 @@
 		<div *ngIf="!isRunning" class="finish-message">{{ finishMessage }}</div>
 
 		<div class="timeline" [style.width]="timelineWidth + '%'"></div>
+</div>
+
+<div #exercises hidden>
+  <div data-seconds="30">Моргайте быстро-быстро</div>
+  <div data-seconds="30">Крепко зажмурьтесь на пару секунд, а потом откройте глаза на пару секунд</div>
+  <div data-seconds="30">Вращайте глазные яблоки, один оборот – по часовой стрелке, другой – против</div>
+  <div data-seconds="40">Легко нажмите на верхнее веко тремя пальцами на пару секунд, потом отпустите на пару секунд</div>
+  <div data-seconds="45">Сфокусируйте взгляд на отдаленном предмете, потом медленно сфокусируйте на близком предмете</div>
 </div>
