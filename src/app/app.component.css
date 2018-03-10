@@ -1,5 +1,5 @@
 .wrapper {
-	background: #eee;
+	background: #f0f4c3;
 	transition: all 30s;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 	width: 400px;
@@ -35,15 +35,16 @@
 
 
 .language-switcher__btn {
-  border: 1px solid transparent;
+  border: 0;
   cursor: pointer;
   background:none;
   padding: 4px 6px;
+  /* transition: transform .3s; */
+
 }
 
 .language-switcher__btn:hover {
-  border-color: #ccc;
-  border-radius: 2px;
+  transform: scale(1.2);
 }
 
 .contact-message {
