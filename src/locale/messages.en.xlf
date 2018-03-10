@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="ru" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="exercise1" datatype="html">
+        <source>Моргайте быстро-быстро</source>
+        <target>Blink very quickly</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="exercise2" datatype="html">
+        <source>Крепко зажмурьтесь на пару секунд, а потом откройте глаза на пару секунд</source>
+        <target>Close your eyes tightly for a couple of seconds, and then open them for a couple of seconds</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="exercise3" datatype="html">
+        <source>Вращайте глазные яблоки, один оборот – по часовой стрелке, другой – против</source>
+        <target>Rotate the eyeballs, one turn - clockwise, the other - against</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="exercise4" datatype="html">
+        <source>Легко нажмите на верхнее веко тремя пальцами на пару секунд, потом отпустите на пару секунд</source>
+        <target>Easily press the upper eyelid with three fingers for a couple of seconds, then release for a couple of seconds</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="exercise5" datatype="html">
+        <source>Сфокусируйте взгляд на отдаленном предмете, потом медленно сфокусируйте на близком предмете</source>
+        <target>Focus the look on the distant object, then slowly focus on the near object</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

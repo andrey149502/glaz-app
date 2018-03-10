@@ -10,6 +10,9 @@ import {
 } from '@angular/animations';
 
 import { zoomInRight, zoomOutLeft, ZOOM_OUT_LEFT } from './animations';
+import { LocaleService } from './locale.service';
+import { MESSAGES_RU } from './data/messages.ru';
+import { MESSAGES_EN } from './data/messages.en';
 
 @Component({
   selector: 'app-root',
@@ -28,48 +31,6 @@ import { zoomInRight, zoomOutLeft, ZOOM_OUT_LEFT } from './animations';
 })
 export class AppComponent {
   exercises: Exercise[];
-  messages: string[] = [
-    'Молодец!',
-    'Великолепно!',
-    'Здорово!',
-    'Чудесно!',
-    'Прекрасно!',
-    'Супер!',
-    'Правильно!',
-    'Класс!',
-    'Совершенно!',
-    'Чудно!',
-    'Замечательно!',
-    'Отлично!',
-    'Грандиозно!',
-    'Превосходно!',
-    'Умница!',
-    'Гениально!',
-    'Фантастично!',
-    'Удивительно!',
-    'Потрясающе!',
-    'Незабываемо!',
-    'Я знал, что у тебя получится!',
-    'Никто не справился бы с этим лучше тебя!',
-    'Я горжусь тобой!',
-    'Ты на правильном пути!',
-    'Это высший класс!',
-    'Сердечно рад за тебя!',
-    'С каждым днём у тебя получается всё лучше!',
-    'Я ни на минуту в тебе не сомневался!',
-    'Это твоя победа!',
-    'Так держать!',
-    'Ты добился успехов в этом деле!',
-    'Ты прав!',
-    'Прекрасное начало!',
-    'Ты смог в этом разобраться!',
-    'Ты всё делаешь правильно!',
-    'Ещё лучше, чем было!',
-    'Продолжай в том же духе!',
-    'Мне нравится ход твоих мыслей!',
-    'Большое тебе спасибо!',
-    'Я в тебя верю!'
-  ];
   finishMessage: string;
   current: Exercise;
   index: number = 0;
@@ -82,6 +43,14 @@ export class AppComponent {
   private exercisesElem: ElementRef;
 
   constructor() { }
+
+  get currentLocale () {
+    return LocaleService.getLocale();
+  }
+
+  changeLocale(locale) {
+    LocaleService.changeLocale(locale);
+  }
 
 
   ngOnInit() {
@@ -156,7 +125,8 @@ export class AppComponent {
   }
 
   selectRandowmMessage() {
-    const array = this.messages;
+    const array = this.currentLocale === 'ru' ? MESSAGES_RU : MESSAGES_EN ;
+    console.log(array);
     this.finishMessage = array[Math.floor(Math.random()*array.length)];
   }
 

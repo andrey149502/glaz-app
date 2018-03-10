@@ -6,14 +6,20 @@
 
 		</div>
 		<div *ngIf="!isRunning" class="finish-message">{{ finishMessage }}</div>
+		<div *ngIf="isRunning" class="contact-message">Contact the author:<br> <a href="mailto:andrey149502@gmail.com">andrey149502@gmail.com</a></div>
 
-		<div class="timeline" [style.width]="timelineWidth + '%'"></div>
+    <div class="timeline" [style.width]="timelineWidth + '%'"></div>
+
+    <div class="language-switcher">
+      <button (click)="changeLocale('en')" class="language-switcher__btn" *ngIf="currentLocale !== 'en'"><span class="flag-icon flag-icon-gb"></span></button>
+      <button (click)="changeLocale('ru')" class="language-switcher__btn" *ngIf="currentLocale !== 'ru'"><span class="flag-icon flag-icon-ru"></span></button>
+    </div>
 </div>
 
 <div #exercises hidden>
-  <div data-seconds="30">Моргайте быстро-быстро</div>
-  <div data-seconds="30">Крепко зажмурьтесь на пару секунд, а потом откройте глаза на пару секунд</div>
-  <div data-seconds="30">Вращайте глазные яблоки, один оборот – по часовой стрелке, другой – против</div>
-  <div data-seconds="40">Легко нажмите на верхнее веко тремя пальцами на пару секунд, потом отпустите на пару секунд</div>
-  <div data-seconds="45">Сфокусируйте взгляд на отдаленном предмете, потом медленно сфокусируйте на близком предмете</div>
+  <div data-seconds="30" i18n="@@exercise1">Моргайте быстро-быстро</div>
+  <div data-seconds="30" i18n="@@exercise2">Крепко зажмурьтесь на пару секунд, а потом откройте глаза на пару секунд</div>
+  <div data-seconds="30" i18n="@@exercise3">Вращайте глазные яблоки, один оборот – по часовой стрелке, другой – против</div>
+  <div data-seconds="40" i18n="@@exercise4">Легко нажмите на верхнее веко тремя пальцами на пару секунд, потом отпустите на пару секунд</div>
+  <div data-seconds="45" i18n="@@exercise5">Сфокусируйте взгляд на отдаленном предмете, потом медленно сфокусируйте на близком предмете</div>
 </div>

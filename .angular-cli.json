@@ -20,6 +20,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "../node_modules/flag-icon-css/css/flag-icon.css",
         "styles.css"
       ],
       "scripts": [],
