@@ -11,8 +11,9 @@ export class LocaleService {
   }
   static locales = ['en', 'ru'];
   static getLocale() {
-    const browserLocale = navigator.language.split('-')[0];
 
-    return localStorage.getItem('localeId') || (this.locales.includes(browserLocale) ? browserLocale : 'en');
+    return localStorage.getItem('localeId') ||
+      this.locales.find((locale) => navigator.language.startsWith(locale)) ||
+      this.locales[0];
   }
 }

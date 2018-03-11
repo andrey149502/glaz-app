@@ -126,7 +126,7 @@ export class AppComponent {
 
   selectRandowmMessage() {
     const array = this.currentLocale === 'ru' ? MESSAGES_RU : MESSAGES_EN ;
-    console.log(array);
+
     this.finishMessage = array[Math.floor(Math.random()*array.length)];
   }
 
