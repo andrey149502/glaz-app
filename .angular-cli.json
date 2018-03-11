@@ -9,8 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "manifest.json",
-        "eye-logo.png"
+        { "glob": "**/*", "input": "./extension_assets/", "output": "./" }
       ],
       "index": "index.html",
       "main": "main.ts",
