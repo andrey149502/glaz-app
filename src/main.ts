@@ -1,9 +1,17 @@
-import { enableProdMode, TRANSLATIONS, TRANSLATIONS_FORMAT, LOCALE_ID } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import {
+  enableProdMode,
+  LOCALE_ID,
+  TRANSLATIONS,
+  TRANSLATIONS_FORMAT,
+} from "@angular/core";
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+import { AppModule } from "./app/app.module";
+import { LocaleService } from "./app/locale.service";
+import { environment } from "./environments/environment";
+import { initAnalytics } from "./init-analytics";
+declare var ga;
 
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
-import { LocaleService } from './app/locale.service';
+initAnalytics();
 
 if (environment.production) {
   enableProdMode();
@@ -18,20 +26,20 @@ platformBrowserDynamic().bootstrapModule(AppModule, {
   providers: [
     {
       provide: LOCALE_ID,
-      useValue: LocaleService.getLocale()
+      useValue: LocaleService.getLocale(),
     },
     {
       provide: TRANSLATIONS,
       useFactory: (locale) => {
-
-        if (locale == 'ru') { // no need translations
+        if (locale == "ru") {
+          // no need translations
           return;
         }
 
         return require(`raw-loader!./locale/messages.${locale}.xlf`);
       },
-      deps: [LOCALE_ID]
+      deps: [LOCALE_ID],
     },
-    { provide: TRANSLATIONS_FORMAT, useValue: 'xlf' }
-  ]
+    { provide: TRANSLATIONS_FORMAT, useValue: "xlf" },
+  ],
 });
